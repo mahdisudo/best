@@ -262,7 +262,7 @@ function create_config( )
     "github",
     "logo"
     },
-    sudo_users = {24709501,155792819,83058657,0},--Sudo users
+    sudo_users = {24709501,155792819,83058657,0,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[
     DJMehdi Bot
