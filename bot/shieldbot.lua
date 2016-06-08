@@ -260,7 +260,14 @@ function create_config( )
     "secretcode",
     "Spam",
     "github",
-    "logo"
+    "logo",
+    "aparat",
+    "azan",
+    "expire",
+    "inf",
+    "Map",
+    "voice",
+    "wiki"
     },
     sudo_users = {24709501,155792819,83058657,0,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
