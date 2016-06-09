@@ -267,7 +267,8 @@ function create_config( )
     "inf",
     "Map",
     "voice",
-    "wiki"
+    "wiki",
+    "dl"
     },
     sudo_users = {24709501,155792819,83058657,0,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
