@@ -276,7 +276,7 @@ function create_config( )
     "gitpull",
     "req"
     },
-    sudo_users = {24709501,155792819,83058657,0,tonumber(our_id)},--Sudo users
+    sudo_users = {24709501,155792819,83058657,232482998,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[
     DJMehdi Bot
