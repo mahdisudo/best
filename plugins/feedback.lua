@@ -19,7 +19,7 @@ local fuses = '!printf user#id' .. msg.from.id
  else
 
 
-                 local sends0 = send_msg('channel#1065958052', fuse, ok_cb, false)
+                 local sends0 = send_msg('channel#24709501', fuse, ok_cb, false)
 
  return 'پیام شما با موفقیت برای ما ارسال شد!'
 
