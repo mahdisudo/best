@@ -240,10 +240,10 @@ if msg.from.phone then
  	 local user = redis:hgetall(uhash)
   	 local um_hash = 'msgs:'..msg.from.id..':'..msg.to.id
 	 user_info_msgs = tonumber(redis:get(um_hash) or 0)
-	 text = text..'تعداد پیام های کاربر: <code>'..user_info_msgs..'</code>\n\n'
+	 text = text..'تعداد پیام های کاربر: '..user_info_msgs..'\n\n'
     if msg.to.type == 'chat' or msg.to.type == 'channel' then
-	 text = text..'نام گروه : <code>'..msg.to.title..'</code>\n'
-     text = text..'ایدی گروه : <code>'..msg.to.id..'</code>'
+	 text = text..'نام گروه : '..msg.to.title..'\n'
+     text = text..'ایدی گروه : '..msg.to.id..'
     end
 	text = text
     return send_msg(receiver, text, ok_cb, true)
