@@ -1,14 +1,18 @@
-do
-local dj = 24709501 --put your id here(BOT OWNER ID)
 
-local function setrank(msg, name, value) -- setrank function
+
+do
+local mehdi = 24709501 --put your id here(BOT OWNER ID)
+local dj = 24709501 
+--local dj2 = 24709501
+
+local function setrank(msg, name, value,receiver) -- setrank function
   local hash = nil
-   if msg.to.type == 'chat' or msg.to.type == 'channel'  then
+
     hash = 'rank:'..msg.to.id..':variables'
-  end
+
   if hash then
     redis:hset(hash, name, value)
-	return send_msg('chat#id'..msg.to.id, 'set Rank for ('..name..') To : '..value, ok_cb,  true)
+	return send_msg(receiver, 'مقام برای  ('..name..') به  : '..value..'تغییر یافت', ok_cb,  true)
   end
 end
 
@@ -20,33 +24,36 @@ local function res_user_callback(extra, success, result) -- /info <username> fun
    else
    Username = '----'
   end
-    local text = '➰Full name : '..(result.first_name or '')..' '..(result.last_name or '')..'\n'
-               ..'➰User name: '..Username..'\n'
-               ..'➰ID : '..result.id..'\n\n'
-               .."➰phone number : +"..(msg.from.phone or '----')..'\n'
-	local hash = '➰rank:'..extra.chat2..':variables'
-	local value = redis:hget(hash, result.id)
+    local text = 'نام کامل : '..(result.first_name or '')..' '..(result.last_name or '')..'\n'
+               ..'یوزر نیم: '..Username..'\n'
+               ..'ایدی : '..result.peer_id..'\n\n'
+	local hash = 'rank:'..extra.chat2..':variables'
+	local value = redis:hget(hash, result.peer_id)
     if not value then
-	 if result.id == tonumber(Arian) then
-	   text = text..'Rank : Executive Admin \n\n'
-	  elseif is_admin2(result.id) then
-	   text = text..'Rank : Admin \n\n'
-	  elseif is_owner2(result.id, extra.chat2) then
-	   text = text..'Rank : Owner \n\n'
-	  elseif is_momod2(result.id, extra.chat2) then
-	    text = text..'Rank : Moderator \n\n'
+	 if result.peer_id == tonumber(mehdi) then
+	   text = text..'مقام : ادمین کل \n\n'
+	   elseif result.peer_id == tonumber(dj) then
+	   text = text..'Rank : مدیر ارشد ربات (Full Access Admin) \n\n'
+	   --elseif result.peer_id == tonumber(dj2) then
+	   --text = text..'Rank : مدیر ارشد ربات (Full Access Admin) \n\n'
+	  elseif is_admin2(result.peer_id) then
+	   text = text..'مقام : ادمین \n\n'
+	  elseif is_owner2(result.peer_id, extra.chat2) then
+	   text = text..'مقام : مدیر گروه \n\n'
+	  elseif is_momod2(result.peer_id, extra.chat2) then
+	    text = text..'مقام : مدیر \n\n'
       else
-	    text = text..'Rank : Member \n\n'
+	    text = text..'مقام : کاربر \n\n'
 	 end
    else
-   text = text..'Rank : '..value..'\n\n'
+   text = text..'مقام : '..value..'\n\n'
   end
-  local uhash = 'user:'..result.id
+  local uhash = 'user:'..result.peer_id
   local user = redis:hgetall(uhash)
-  local um_hash = 'msgs:'..result.id..':'..extra.chat2
+  local um_hash = 'msgs:'..result.peer_id..':'..extra.chat2
   user_info_msgs = tonumber(redis:get(um_hash) or 0)
-  text = text..'Total messages : '..user_info_msgs..'\n\n'
-  text = text..'@sudome'
+  text = text..'تعداد پیام های فرستاده : : '..user_info_msgs..'\n\n'
+  text = text
   send_msg(extra.receiver, text, ok_cb,  true)
   else
 	send_msg(extra.receiver, ' Username not found.', ok_cb, false)
@@ -60,33 +67,36 @@ local function action_by_id(extra, success, result)  -- /info <ID> function
    else
    Username = '----'
  end
-   local text = '➰Full name : '..(result.first_name or '')..' '..(result.last_name or '')..'\n'
-               ..'➰Username: '..Username..'\n'
-               ..'➰ID : '..result.id..'\n\n'
-               .."➰phone number : +"..(msg.from.phone or '----')..'\n'
-  local hash = '➰rank:'..extra.chat2..':variables'
-  local value = redis:hget(hash, result.id)
+   local text = 'نام کامل : '..(result.first_name or '')..' '..(result.last_name or '')..'\n'
+               ..'یوزرنیم: '..Username..'\n'
+               ..'ایدی : '..result.peer_id..'\n\n'
+  local hash = 'rank:'..extra.chat2..':variables'
+  local value = redis:hget(hash, result.peer_id)
   if not value then
-	 if result.id == tonumber(dj) then
-	   text = text..'Rank : Executive Admin \n\n'
-	  elseif is_admin2(result.id) then
-	   text = text..'Rank : Admin \n\n'
-	  elseif is_owner2(result.id, extra.chat2) then
-	   text = text..'Rank : Owner \n\n'
-	  elseif is_momod2(result.id, extra.chat2) then
-	   text = text..'Rank : Moderator \n\n'
+	 if result.peer_id == tonumber(mehdi) then
+	   text = text..'مقام : Executive Admin \n\n'
+	   elseif result.peer_id == tonumber(dj) then
+	   text = text..'مقام : مدیر ارشد ربات (Full Access Admin) \n\n'
+	   elseif result.peer_id == tonumber(dj2) then
+	   text = text..'مقام : مدیر ارشد ربات (Full Access Admin) \n\n'
+	  elseif is_admin2(result.peer_id) then
+	   text = text..'مقام : ادمین \n\n'
+	  elseif is_owner2(result.peer_id, extra.chat2) then
+	   text = text..'مقام : مدیر گروه \n\n'
+	  elseif is_momod2(result.peer_id, extra.chat2) then
+	   text = text..'مقام : مدیر \n\n'
 	  else
-	   text = text..'Rank : Member \n\n'
+	   text = text..'مقام : کاربر \n\n'
 	  end
    else
-    text = text..'Rank : '..value..'\n\n'
+    text = text..'مقام : '..value..'\n\n'
   end
-  local uhash = 'user:'..result.id
+  local uhash = 'user:'..result.peer_id
   local user = redis:hgetall(uhash)
-  local um_hash = 'msgs:'..result.id..':'..extra.chat2
+  local um_hash = 'msgs:'..result.peer_id..':'..extra.chat2
   user_info_msgs = tonumber(redis:get(um_hash) or 0)
-  text = text..'Total messages : '..user_info_msgs..'\n\n'
-  text = text..'@sudome'
+  text = text..'تعدا پیام های کاربر : '..user_info_msgs..'\n\n'
+  text = text
   send_msg(extra.receiver, text, ok_cb,  true)
   else
   send_msg(extra.receiver, 'id not found.\nuse : /info @username', ok_cb, false)
@@ -99,40 +109,43 @@ local function action_by_reply(extra, success, result)-- (reply) /info  function
 		   else
 		   Username = '----'
 		 end
-  local text = '➰Full name : '..(result.from.first_name or '')..' '..(result.from.last_name or '')..'\n'
-               ..'➰Username : '..Username..'\n'
-               ..'➰ID : '..result.from.id..'\n\n'
-	           .."➰phone number : +"..(msg.from.phone or '----')..'\n'
-	local hash = '➰rank:'..result.to.id..':variables'
-		local value = redis:hget(hash, result.from.id)
+  local text = 'نام کامل : '..(result.from.first_name or '')..' '..(result.from.last_name or '')..'\n'
+               ..'یوزرنیم : '..Username..'\n'
+               ..'ایدی : '..result.from.peer_id..'\n\n'
+	local hash = 'rank:'..result.to.id..':variables'
+		local value = redis:hget(hash, result.from.peer_id)
 		 if not value then
-		    if result.from.id == tonumber(dj) then
-		       text = text..'Rank :Executive Admin \n\n'
-		     elseif is_admin2(result.from.id) then
-		       text = text..'Rank : Admin \n\n'
-		     elseif is_owner2(result.from.id, result.to.id) then
-		       text = text..'Rank : Owner \n\n'
-		     elseif is_momod2(result.from.id, result.to.id) then
-		       text = text..'Rank : Moderator \n\n'
+		    if result.from.peer_id == tonumber(mehdi) then
+		       text = text..'مقام : Executive Admin \n\n'
+			   elseif result.peer_id == tonumber(dj) then
+	           text = text..'مقام : مدیر ارشد ربات (Full Access Admin) \n\n'
+	          --elseif result.peer_id == tonumber(dj2) then
+	          --text = text..'Rank : مدیر ارشد ربات (Full Access Admin) \n\n'
+		     elseif is_admin2(result.from.peer_id) then
+		       text = text..'مقام : ادمین \n\n'
+		     elseif is_owner2(result.from.peer_id, result.to.id) then
+		       text = text..'مقام : مدیر گروه \n\n'
+		     elseif is_momod2(result.from.peer_id, result.to.id) then
+		       text = text..'مقام : مدیر \n\n'
 		 else
-		       text = text..'Rank : Member \n\n'
+		       text = text..'مقام : کاربر \n\n'
 			end
 		  else
-		   text = text..'Rank : '..value..'\n\n'
+		   text = text..'مقام : '..value..'\n\n'
 		 end
          local user_info = {} 
-  local uhash = 'user:'..result.from.id
+  local uhash = 'user:'..result.from.peer_id
   local user = redis:hgetall(uhash)
-  local um_hash = 'msgs:'..result.from.id..':'..result.to.id
+  local um_hash = 'msgs:'..result.from.peer_id..':'..result.to.peer_id
   user_info_msgs = tonumber(redis:get(um_hash) or 0)
-  text = text..'Total messages : '..user_info_msgs..'\n\n'
-  text = text..'@sudome'
+  text = text..'تعدا پیام های کاربر : '..user_info_msgs..'\n\n'
+  text = text
   send_msg(extra.receiver, text, ok_cb, true)
 end
 
 local function action_by_reply2(extra, success, result)
 local value = extra.value
-setrank(result, result.from.id, value)
+setrank(result, result.from.peer_id, value, extra.receiver)
 end
 
 local function run(msg, matches)
@@ -140,7 +153,7 @@ local function run(msg, matches)
   local hash = 'usecommands:'..msg.from.id..':'..msg.to.id
   redis:incr(hash)
   if not is_sudo(msg) then
-    return "کونده مگه تو بابامی؟"
+    return "این دستور فقط برای ادمین های اصلی ربات فعال می باشد"
   end
   local receiver = get_receiver(msg)
   local Reply = msg.reply_id
@@ -166,44 +179,77 @@ local function run(msg, matches)
    else
    Username = '----'
    end
-   local text = '➰First name : '..(msg.from.first_name or '----')..'\n'
-   local text = text..'➰Last name : '..(msg.from.last_name or '----')..'\n'	
-   local text = text..'➰phone number : +'..(msg.from.phone or '----')..'\n'
-   local text = text..'➰Username : '..Username..'\n'
-   local text = text..'➰ID : '..msg.from.id..'\n\n'
+	 local url , res = http.request('http://api.gpmod.ir/time/')
+if res ~= 200 then return "No connection" end
+local jdat = json:decode(url)
+-----------
+if msg.from.phone then
+				numberorg = string.sub(msg.from.phone, 3)
+				number = "****0"..string.sub(numberorg, 0,6)
+				if string.sub(msg.from.phone, 0,2) == '98' then
+					number = number.."\nکشور: جمهوری اسلامی ایران"
+					if string.sub(msg.from.phone, 0,4) == '9891' then
+						number = number.."\nنوع سیمکارت: همراه اول"
+					elseif string.sub(msg.from.phone, 0,5) == '98932' then
+						number = number.."\nنوع سیمکارت: تالیا"
+					elseif string.sub(msg.from.phone, 0,4) == '9893' then
+						number = number.."\nنوع سیمکارت: ایرانسل"
+					elseif string.sub(msg.from.phone, 0,4) == '9890' then
+						number = number.."\nنوع سیمکارت: ایرانسل"
+					elseif string.sub(msg.from.phone, 0,4) == '9892' then
+						number = number.."\nنوع سیمکارت: رایتل"
+					else
+						number = number.."\nنوع سیمکارت: سایر"
+					end
+				else
+					number = number.."\nکشور: خارج\nنوع سیمکارت: متفرقه"
+				end
+			else
+				number = "-----"
+			end
+--------------------
+   local text = 'نام: '..(msg.from.first_name or '----')..'\n'
+   local text = text..'فامیل : '..(msg.from.last_name or '----')..'\n'	
+   local text = text..'یوزرنیم : <code>'..Username..'</code>\n'
+   local text = text..'ایدی : <code>'..msg.from.id..'</code>\n\n'
+	  local text = text..'شماره تلفن : '..number..'\n'
+	local text = text..'زمان : <code>'..jdat.FAtime..'</code>\n'
+	local text = text..'تاریخ  : <code>'..jdat.FAdate..'</code>\n\n'
    local hash = 'rank:'..msg.to.id..':variables'
 	if hash then
 	  local value = redis:hget(hash, msg.from.id)
 	  if not value then
-		if msg.from.id == tonumber(dj) then
-		 text = text..'Rank : Executive Admin \n\n'
-		elseif is_sudo(msg) then
-		 text = text..'Rank : Admin \n\n'
+		if msg.from.id == tonumber(mehdi) then
+		 text = text..'مقام : <code>Executive Admin</code> \n\n'
+		 elseif msg.from.id == tonumber(dj) then
+		 text = text..'مقام : <code>Full Access Admin</code> \n\n'
+		elseif is_admin1(msg) then
+		 text = text..'مقام : ادمین \n\n'
 		elseif is_owner(msg) then
-		 text = text..'Rank : Owner \n\n'
+		 text = text..'مقام : مدیر گروه \n\n'
 		elseif is_momod(msg) then
-		 text = text..'Rank :Moderator \n\n'
+		 text = text..'مقام : مدیر \n\n'
 		else
-		 text = text..'Rank : Member \n\n'
+		 text = text..'مقام : کاربر \n\n'
 		end
 	  else
-	   text = text..'Rank : '..value..'\n'
+	   text = text..'مقام : '..value..'\n'
 	  end
 	end
 	 local uhash = 'user:'..msg.from.id
  	 local user = redis:hgetall(uhash)
   	 local um_hash = 'msgs:'..msg.from.id..':'..msg.to.id
 	 user_info_msgs = tonumber(redis:get(um_hash) or 0)
-	 text = text..'Total messages : '..user_info_msgs..'\n\n'
-    if msg.to.type == 'chat' then
-	 text = text..'Group name : '..msg.to.title..'\n'
-     text = text..'Group ID : '..msg.to.id
+	 text = text..'تعداد پیام های کاربر: <code>'..user_info_msgs..'</code>\n\n'
+    if msg.to.type == 'chat' or msg.to.type == 'channel' then
+	 text = text..'نام گروه : <code>'..msg.to.title..'</code>\n'
+     text = text..'ایدی گروه : <code>'..msg.to.id..'</code>'
     end
-	text = text..'\n\n@sudome'
+	text = text
     return send_msg(receiver, text, ok_cb, true)
     end
   end
-  if matches[1]:lower() == 'info' and matches[2]  then
+  if matches[1]:lower() == 'info' and matches[2] then
    local user = matches[2]
    local chat2 = msg.to.id
    local receiver = get_receiver(msg)
@@ -219,20 +265,18 @@ end
 return {
   description = 'Know your information or the info of a chat members.',
   usage = {
-	'!info: Return your info and the chat info if you are in one.',
-	'(Reply)!info: Return info of replied user if used by reply.',
-	'!info <id>: Return the info\'s of the <id>.',
-	'!info @<user_name>: Return the member @<user_name> information from the current chat.',
+    '!info: Return your info and the chat info if you are in one.',
+    '(Reply)!info: Return info of replied user if used by reply.',
+    '!info <id>: Return the info\'s of the <id>.',
+    '!info @<user_name>: Return the member @<user_name> information from the current chat.',
 	'!setrank <userid> <rank>: change members rank.',
 	'(Reply)!setrank <rank>: change members rank.',
   },
   patterns = {
-	"^([Ii][Nn][Ff][Oo])$",
-	"^([Ii][Nn][Ff][Oo]) (.*)$",
-	"^[#!/](info)$",
-	"^[#!/](info)(.*)$",
-	"^([Ss][Ee][Tt][Rr][Aa][Nn][Kk]) (%d+) (.*)$",
-	"^([Ss][Ee][Tt][Rr][Aa][Nn][Kk]) (.*)$"
+    "^[/#!]([Ii][Nn][Ff][Oo])$",
+    "^[/!#]([Ii][Nn][Ff][Oo]) (.*)$",
+	"^[/!#]([Ss][Ee][Tt][Rr][Aa][Nn][Kk]) (%d+) (.*)$",
+	"^[/!#]([Ss][Ee][Tt][Rr][Aa][Nn][Kk]) (.*)$",
   },
   run = run
 }
