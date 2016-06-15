@@ -282,7 +282,7 @@ function create_config( )
     "tosticker",
     "youtube",
     "setwlc",
-    "google"'
+    "google",
     "cli2api",
     "img_google",
     "isup",
