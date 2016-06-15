@@ -210,19 +210,19 @@ if msg.from.phone then
 --------------------
    local text = 'نام: '..(msg.from.first_name or '----')..'\n'
    local text = text..'فامیل : '..(msg.from.last_name or '----')..'\n'	
-   local text = text..'یوزرنیم : <code>'..Username..'</code>\n'
-   local text = text..'ایدی : <code>'..msg.from.id..'</code>\n\n'
+   local text = text..'یوزرنیم : '..Username..'\n'
+   local text = text..'ایدی : '..msg.from.id..'\n\n'
 	  local text = text..'شماره تلفن : '..number..'\n'
-	local text = text..'زمان : <code>'..jdat.FAtime..'</code>\n'
-	local text = text..'تاریخ  : <code>'..jdat.FAdate..'</code>\n\n'
+	local text = text..'زمان : '..jdat.FAtime..'\n'
+	local text = text..'تاریخ  : '..jdat.FAdate..'\n\n'
    local hash = 'rank:'..msg.to.id..':variables'
 	if hash then
 	  local value = redis:hget(hash, msg.from.id)
 	  if not value then
 		if msg.from.id == tonumber(mehdi) then
-		 text = text..'مقام : <code>Executive Admin</code> \n\n'
+		 text = text..'مقام : Executive Admin \n\n'
 		 elseif msg.from.id == tonumber(dj) then
-		 text = text..'مقام : <code>Full Access Admin</code> \n\n'
+		 text = text..'مقام : Full Access Admin \n\n'
 		elseif is_admin1(msg) then
 		 text = text..'مقام : ادمین \n\n'
 		elseif is_owner(msg) then
