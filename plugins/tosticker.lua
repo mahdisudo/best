@@ -3,7 +3,7 @@ local function tosticker(msg, success, result)
   if success then
     local file = './data/sticker/'..msg.from.id..'.webp'
     print('File downloaded to:', result)
-    os.rename(result, file)
+    os.rename(result,file)
     print('File moved to:', file)
     send_document(get_receiver(msg), file, ok_cb, false)
     redis:del("photo:sticker")
