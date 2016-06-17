@@ -1,4 +1,4 @@
-ocal function tosticker(msg, success, result)
+local function tosticker(msg, success, result)
   local receiver = get_receiver(msg)
   if success then
     local file = './data/sticker/'..msg.from.id..'.webp'
