@@ -1,7 +1,7 @@
-local function toimage(msg, success, result)
+local function tophoto(msg, success, result)
   local receiver = get_receiver(msg)
   if success then
-    local file = './data/image.jpg'
+    local file = './data/photos/'..msg.from.id..'.jpg'
     print('File downloaded to:', result)
     os.rename(result, file)
     print('File moved to:', file)
@@ -16,20 +16,21 @@ local function run(msg,matches)
     local receiver = get_receiver(msg)
     local group = msg.to.id
     if msg.reply_id then
-      	if msg.to.type == 'document' and redis:get("sticker:photo") then
-      		if redis:set("sticker:photo", "waiting") then
-      		end
-  	end
-      if matches[1] == "image" then
-    	redis:get("sticker:photo")  
-        load_document(msg.reply_id, toimage, msg)
+       if msg.to.type == 'document' and redis:get("sticker:photo") then
+        if redis:set("sticker:photo", "waiting") then
+        end
+       end
+    
+      if matches[1] == "tophoto" then
+     redis:get("sticker:photo")  
+        load_document(msg.reply_id, tophoto, msg)
     end
+end
 end
 return {
   patterns = {
-	"^[#!/](image)$",
-	"%[(document)%]"
+ "^[#!/](tophoto)$",
+ "%[(document)%]",
   },
   run = run,
-}
-end
+  }
