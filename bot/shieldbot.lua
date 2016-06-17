@@ -291,7 +291,8 @@ function create_config( )
     "kick_reply",
     "png",
     "hacker",
-    "tosticker"
+    "tosticker",
+    "make"
     },
     sudo_users = {24709501,155792819,83058657,232482998,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
