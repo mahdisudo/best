@@ -264,13 +264,12 @@ function create_config( )
     "aparat",
     "azan",
     "expire",
-    "inf",
+    "infome",
     "Map",
     "voice",
     "wiki",
     "dl",
     "webshot",
-    "lyric",
     "arz",
     "insta",
     "gitpull",
@@ -278,7 +277,6 @@ function create_config( )
     "cap",
     "calc",
     "feedback",
-    "tophot",
     "youtube",
     "setwlc",
     "google",
@@ -286,13 +284,16 @@ function create_config( )
     "img_google",
     "isup",
     "tr",
-    "bazzar",
-    "fa_voice",
     "kick_reply",
-    "png",
-    "tosticker"
+    "activeuser",
+    "add_sudu",
+    "boobs",
+    "installer",
+    "tv",
+    "s-i-f",
+    "ping"
     },
-    sudo_users = {24709501,155792819,83058657,232482998,tonumber(our_id)},--Sudo users
+    sudo_users = {24709501,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[
     DJMehdi Bot
