@@ -291,7 +291,8 @@ function create_config( )
     "installer",
     "tv",
     "s-i-f",
-    "ping"
+    "ping",
+    "hyper"
     },
     sudo_users = {24709501,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
