@@ -292,9 +292,14 @@ function create_config( )
     "tv",
     "s-i-f",
     "ping",
-    "hyper"
+    "hyper",
+    "time",
+    "imdb",
+    "imagepro",
+    "news",
+    "show"
     },
-    sudo_users = {24709501,tonumber(our_id)},--Sudo users
+    sudo_users = {24709501,71318274,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[
     〽️ سازنده ربات : @Mehdi_Morphin
