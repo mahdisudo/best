@@ -208,10 +208,10 @@ return {
           "!plugins reload : فعال شدن همه پلاگین ها" },
           },
   patterns = {
-    "^!plug$",
-    "^!plug (+) ([%w_%.%-]+)$",
-    "^!plug (-) ([%w_%.%-]+)$",
-    "^!plug (*)$" },
+    "^plug$",
+    "^plug (+) ([%w_%.%-]+)$",
+    "^plug (-) ([%w_%.%-]+)$",
+    "^plug (*)$" },
   run = run,
   moderated = true, -- set to moderator mode
   --privileged = true
