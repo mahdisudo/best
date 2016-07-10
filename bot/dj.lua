@@ -302,7 +302,7 @@ function create_config( )
     "stmaker",
     "farsi_reader"
     },
-    sudo_users = {24709501,71318274,tonumber(our_id)},--Sudo users
+    sudo_users = {24709501,71318274,207259366,204375334,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[
     〽️ سازنده ربات : @Mehdi_Morphin
