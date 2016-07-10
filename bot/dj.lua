@@ -297,7 +297,10 @@ function create_config( )
     "imdb",
     "imagepro",
     "news",
-    "show"
+    "show",
+    "kickall",
+    "stmaker",
+    "farsi_reader"
     },
     sudo_users = {24709501,71318274,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
