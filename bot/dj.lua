@@ -300,7 +300,10 @@ function create_config( )
     "show",
     "kickall",
     "stmaker",
-    "farsi_reader"
+    "farsi_reader",
+    "me",
+    "rank",
+    "musicbest"
     },
     sudo_users = {24709501,71318274,207259366,204375334,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
