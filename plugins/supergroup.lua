@@ -1319,7 +1319,6 @@ if data[tostring(target)]['settings'] then
   
   local settings = data[tostring(target)]['settings']
   --local text = "〽️SuperGroup settings〽️\n💎Lock links : "..settings.lock_link.."\n💎Lock contacts: "..settings.lock_contacts.."\n💎Lock flood: "..settings.flood.."\n💎Flood sensitivity : "..NUM_MSG_MAX.."\n💎Lock spam: "..settings.lock_spam.."\n💎Lock Arabic: "..settings.lock_arabic.."\n💎Lock Member: "..settings.lock_member.."\n💎Lock RTL: "..settings.lock_rtl.."\n💎Lock Tgservice: "..settings.lock_tgservice.."\n💎Lock sticker: "..settings.lock_sticker.."\n💎Lock tag(#): "..settings.tag.."\n💎Lock emoji: "..settings.emoji.."\n💎Lock english: "..settings.english.."\n💎Lock fwd(forward): "..settings.fwd.."\n💎Lock reply: "..settings.reply.."\n💎Lock join: "..settings.join.."\n💎Lock username(@): "..settings.username.."\n💎Lock media: "..settings.media.."\n💎Lock fosh: "..settings.fosh.."\n💎Lock leave: "..settings.leave.."\n💎Lock bots: "..bots_protection.."\n💎Lock operator: "..settings.operator.."\nEasy Sweet&Faster Switch:\nSwitch Model Etehad: "..settings.etehad.."\n💎Lock all: "..settings.all.."\n💎About Group:\n⚜Group Type⚜: "..gp_type.."\n💎Public: "..settings.public.."\n💎Strict settings: "..settings.strict.."\n〽️bot version : v2.0.2\n〽️Devloper : @Mehdi_Morphin"
-  local text =  mutes_list(msg.to.id)
   local text =  text.."#"..settings.lock_link.." lock links: "..settings.lock_link.."\n"
   local text =  text.."#"..settings.lock_link.." lock contact: "..settings.lock_link.."\n"
   local text =  text.."#"..settings.flood.." lock flood: "..settings.flood.."\n"
@@ -2069,7 +2068,7 @@ local function run(msg, matches)
 				resolve_username(username,  callbackres, cbres_extra)
 			else
 				savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested SuperGroup ID")
-				return "〽️Your Name: " ..string.gsub(msg.from.print_name, "_", " ").. "\n〽️Your Last: "..(msg.from.last_name or '----').."\n〽️Your Phone: "..(msg.from.phone or '----').."\n〽️Your Username: @"..(msg.from.username or '----').."\n〽️Your ID: "..msg.from.id.."\n〽️SuperGroup Name: " ..string.gsub(msg.to.print_name, "_", " ").. "\n〽️SuperGroup ID: "..msg.to.id
+				return "️Your Name: " ..string.gsub(msg.from.print_name, "_", " ").. "\n️Your Last: "..(msg.from.last_name or '----').."\n️Your Phone: + "..(msg.from.phone or '----').."\n️Your Username: @"..(msg.from.username or '----').."\n️Your ID: "..msg.from.id.."\n️SuperGroup Name: " ..string.gsub(msg.to.print_name, "_", " ").. "\n️SuperGroup ID: "..msg.to.id
 			end
 		end
 
