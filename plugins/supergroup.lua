@@ -2738,7 +2738,7 @@ local function run(msg, matches)
 				return
 			end
 			if tonumber(matches[2]) < 1 or tonumber(matches[2]) > 200 then
-				return "Wrong number,range is [1-200]" reply_msg(msg.id, text, ok_cb, false)
+				return "Wrong number,range is [1-200]"
 		end
 			local flood_max = matches[2]
 			data[tostring(msg.to.id)]['settings']['flood_msg_max'] = flood_max
