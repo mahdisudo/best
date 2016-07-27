@@ -2741,6 +2741,7 @@ local function run(msg, matches)
 				return "Wrong number,range is [1-200]"
 				reply_msg(msg.id, text, ok_cb, false)
 			end
+			end
 			local flood_max = matches[2]
 			data[tostring(msg.to.id)]['settings']['flood_msg_max'] = flood_max
 			save_data(_config.moderation.data, data)
