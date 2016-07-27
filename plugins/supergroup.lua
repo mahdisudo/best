@@ -2739,7 +2739,8 @@ local function run(msg, matches)
 			end
 			if tonumber(matches[2]) < 1 or tonumber(matches[2]) > 200 then
 				return "Wrong number,range is [1-200]"
-				(reply_msg(msg.id, text, ok_cb, false)
+				(reply_msg(msg.id, text, ok_cb, false) end
+					end
 			end
 			
 		end
