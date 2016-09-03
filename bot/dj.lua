@@ -277,10 +277,7 @@ function create_config( )
     "cap",
     "calc",
     "feedback",
-    "youtube",
     "setwlc",
-    "google",
-    "cli2api",
     "img_google",
     "isup",
     "tr",
@@ -300,12 +297,10 @@ function create_config( )
     "show",
     "kickall",
     "stmaker",
-    "farsi_reader",
     "me",
-    "rank",
-    "musicbest"
+    "rank"
     },
-    sudo_users = {24709501,71318274,207259366,204375334,tonumber(our_id)},--Sudo users
+    sudo_users = {155940345,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
     about_text = [[
     〽️ سازنده ربات : @Mehdi_Morphin
