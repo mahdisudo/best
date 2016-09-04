@@ -298,7 +298,8 @@ function create_config( )
     "kickall",
     "stmaker",
     "me",
-    "rank"
+    "rank",
+    "nastaligh"
     },
     sudo_users = {155940345,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
