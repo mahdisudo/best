@@ -19,18 +19,18 @@ memUsed_m=$(($memTotal_m-$memFree_m-$memBuffer_m-$memCache_m))
 
 memUsedPrc=$((($memUsed_b*100)/$memTotal_b))
 
-echo "1⃣Memory: CRITICAL Total: $memTotal_m MB"
+echo "<code>1⃣Memory: CRITICAL Total: $memTotal_m MB</code>"
 echo "➖➖➖➖➖➖➖➖➖"
-echo "2⃣Memory Used: $memUsed_m MB - $memUsedPrc% used!"
+echo "<code>2⃣Memory Used: $memUsed_m MB - $memUsedPrc% used!</code>"
 echo "➖➖➖➖➖➖➖➖➖"
-echo "3⃣Total : $memTotal_b"
+echo "<code>3⃣Total : $memTotal_b</code>"
 echo "➖➖➖➖➖➖➖➖➖"
-echo '4⃣CPU Usage : '"$CPUPer"'%'
+echo '<code>4⃣CPU Usage :</code> '"$CPUPer"'%'
 echo "➖➖➖➖➖➖➖➖➖"
-echo '5⃣Hdd : '"$hdd"'%'
+echo '<code>5⃣Hdd : </code>'"$hdd"'%'
 echo "➖➖➖➖➖➖➖➖➖"
-echo '6⃣Processes : '"$ProcessCnt"
+echo '<code>6⃣Processes : </code>'"$ProcessCnt"
 echo "➖➖➖➖➖➖➖➖➖"
-echo '7⃣Uptime : '"$uptime"
-echo ">>DJ Mehdi<<"
-echo ">>@pic5all<<"
+echo '<code>7⃣Uptime : </code>'"$uptime"
+echo "<code> >>logan<< </code>"
+echo "<code> >>@ir_poker<< </code>"
