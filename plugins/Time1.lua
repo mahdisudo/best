@@ -6,7 +6,7 @@ local stickurl = 'http://latex.codecogs.com/png.download?'
 	..'\\dpi{300}%20\\LARGE%20'..jdat.ENtime
 local file = download_to_file(stickurl,'time.webp')
 send_document('channel#id'..msg.to.id,file,ok_cb,false)
-return 'امروز📆:\n'..jdat.FAdate
+return '<code>امروز📆:</code>\n'..jdat.FAdate
 end
 return {
   patterns = {"^[/!]([Tt][iI][Mm][Ee])$"}, 
