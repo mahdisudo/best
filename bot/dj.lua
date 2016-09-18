@@ -299,7 +299,10 @@ function create_config( )
     "stmaker",
     "me",
     "rank",
-    "nastaligh"
+    "nastaligh",
+    "addbot",
+    "delacc",
+    "CloseGroup"
     },
     sudo_users = {155940345,tonumber(our_id)},--Sudo users
     moderation = {data = 'data/moderation.json'},
