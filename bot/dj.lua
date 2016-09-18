@@ -308,6 +308,7 @@ function create_config( )
 〽️ ورژن ربات : v.2.
     ]],
     help_text_realm = [[
+    <code>
 💎 دستورات سوپرگروه: ⬇️
 
 !gpinfo
@@ -419,8 +420,10 @@ function create_config( )
 لست کلمات فیلتر
 
 〽️ سازنده ربات : @Mehdi_Morphin
-〽️ ورژن ربات : v.2.2]],
+〽️ ورژن ربات : v.2.
+</code>2]],
     help_text = [[
+    <code>
 💎 دستورات سوپرگروه: ⬇️
 
 !gpinfo
@@ -532,8 +535,10 @@ function create_config( )
 لست کلمات فیلتر
 
 〽️ سازنده ربات : @Mehdi_Morphin
-〽️ ورژن ربات : v.2.2]],
+〽️ ورژن ربات : v.2.2
+</code>]],
 	help_text_super =[[
+	<code>
 💎 دستورات سوپرگروه: ⬇️
 
 !gpinfo
@@ -645,7 +650,8 @@ function create_config( )
 لست کلمات فیلتر
 
 〽️ سازنده ربات : @Mehdi_Morphin
-〽️ ورژن ربات : v.2.2]],
+〽️ ورژن ربات : v.2.2
+</code>]],
   }
   serialize_to_file(config, './data/config.lua')
   print('saved config into ./data/config.lua')
