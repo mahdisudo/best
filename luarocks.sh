@@ -11,9 +11,9 @@ wget http://luarocks.org/releases/luarocks-2.2.2.tar.gz
 tar zxpf luarocks-2.2.2.tar.gz
 cd luarocks-2.2.2.tar.gz
 ./configure;sudo make bootstrap
-sudo luarock install luasocket
-sudo luarock install luasec
-sudo luarock install redis-lua
-sudo luarock install ansicolors
-sudo luarock install feedparser
+sudo luarocks install luasocket
+sudo luarocks install luasec
+sudo luarocks install redis-lua
+sudo luarocks install ansicolors
+sudo luarocks install feedparser
 fi
